@@ -1,6 +1,7 @@
 #!/bin/sh
-#install GNU Radio(3.8.5.0) w/gr-net w/digital_rf w/Osmocom w/HPSDR
-#N4XWE 7-23-2022
+#install GNU Radio(3.8.5.0) w/gr-net w/digital_rf w/h5py3.7.0
+#N4XWE 12-20-2022
+#Built Specifically for the HamSci Grape/DRF
 #Test Compiled on Ubuntu 22.04LTS for the Raspberry Pi 64-bit
 
 #Update the apt cache and upgrade the system packages to their latest versions
@@ -120,57 +121,8 @@ sudo make install ||
 #Link the digital_rf files
 sudo ldconfig
 
-#Change the unique directory previously created for the GNU Radio compile to the current directory 
-cd ~/src/GNURadio
-
-#Clone the latest gr-osmosdr source block code from osmocom.org
-git clone git://git.osmocom.org/gr-osmosdr.git
-
-#Change the directory containing the gr-osmosdr source code to the current directory
-cd ~/src/GNURadio/gr-osmosdr
-
-#Checkout the gr3.8 branch of gr-osmosdr for GNU Radio from the cloned osmosdr github repository
-git checkout gr3.8
-git submodule update --init --recursive
-
-#Create a directory for an indirect build of gr-osmosdr and make it the current directory
-mkdir -p ~/src/GNURadio/gr-osmosdr/build && cd ~/src/GNURadio/gr-osmosdr/build 
-	
-#Configure the Makefile for the gr-osmosdr source block compile
-cmake .. 
-
-#Compile and install gr-osmosdr
-make && sudo make install ||
-  { echo 'Unable to install gr-osmosdr'; exit 1; }
- 
-#Link the gr-osmosdr library files
-sudo ldconfig
-
-#Change the unique directory previously created for the GNU Radio compile to the current directory 
-cd ~/src/GNURadio
-
-#Clone the latest gr-hpsdr source code from github
-git clone https://github.com/Tom-McDermott/gr-hpsdr.git
-
-#Change the directory containing the gr-hpsdr source code to the current directory
-cd ~/src/GNURadio/gr-hpsdr
-
-#Checkout the gr_3.8 branch of gr-hpsdr for GNU Radio from the cloned gr-hpsdr github repository
-git checkout gr_3.8
-git submodule update --init --recursive
-
-#Create a directory for an indirect build of gr-hpsdr 3.8 and make it the current directory
-mkdir -p ~/src/GNURadio/gr-hpsdr/build && cd ~/src/GNURadio/gr-hpsdr/build 
-	
-#Configure the Makefile for the gr-hpsdr source block compile
-cmake .. 
-
-#Compile and install the gr-hpsdr 3.8 source block
-make -j 3 && sudo make install ||
-  { echo 'Unable to install gr-hpsdr'; exit 1; }
-  
-#Link the gr-hpsdr library files
-sudo ldconfig
+#Install the h5py Python package
+pip install h5py
 
 #Make the GNU Radio Library and Python Path statements permanent
 echo "export PYTHONPATH=/usr/local/lib/python3/dist-packages:/usr/local/lib/python3.10/dist-packages" >> ~/.profile
