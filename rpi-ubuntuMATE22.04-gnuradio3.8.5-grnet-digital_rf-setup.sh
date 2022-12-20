@@ -1,7 +1,7 @@
 #!/bin/sh
 #install GNU Radio(3.8.5.0) w/gr-net w/digital_rf w/h5py3.7.0
 #N4XWE 12-20-2022
-#Built Specifically for the HamSci Grape/DRF
+#Built Specifically for the HamSci Grape/DRF Project
 #Test Compiled on Ubuntu 22.04LTS for the Raspberry Pi 64-bit
 
 #Update the apt cache and upgrade the system packages to their latest versions
@@ -10,13 +10,13 @@ sudo apt update && sudo apt upgrade -y
 #Add the compile dependencies
 sudo apt install -y git cmake g++ libboost-all-dev libgmp-dev swig python3-numpy \
 python3-mako python3-sphinx python3-lxml python3-doc8 doxygen libfftw3-dev \
-libsdl1.2-dev libgsl-dev libqwt-qt5-dev libqt5opengl5-dev python3-pyqt5 \
+libsdl1.2-dev libgsl-dev libqwt-qt5-dev libqt5opengl5-dev python3-pyqt5 python-pip \
 liblog4cpp5-dev libzmq3-dev python3-yaml python3-click python3-click-plugins \
 python3-zmq python3-scipy libpthread-stubs0-dev libusb-1.0-0 libusb-1.0-0-dev \
 libudev-dev python3-setuptools build-essential liborc-0.4-0 liborc-0.4-dev \
 libcairo2-dev python3-gi-cairo python3-pygccxml libgmp3-dev zlib1g-dev libpcap-dev \
-pybind11-dev python3-pybind11 libosmesa6 tk8.6 dvipng inkscape ipython3 librtlsdr0 \
-python3-cairocffi python3-nose python3-tornado texlive-extra-utils librtlsdr-dev \
+pybind11-dev python3-pybind11 libosmesa6 tk8.6 dvipng inkscape ipython3 \
+python3-cairocffi python3-nose python3-tornado texlive-extra-utils python3-pip \
 texlive-latex-extra ttf-staypuft python3-gdal python3-pydot python3-pygraphviz \
 libgle3 tix python3-tk-dbg libboost-tools-dev libhdf5-dev python3-pkgconfig \
 python3-dev python3-dateutil python3-tz python3-six python3-pandas python3-watchdog ||
