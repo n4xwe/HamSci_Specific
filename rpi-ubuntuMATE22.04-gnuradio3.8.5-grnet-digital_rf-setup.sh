@@ -22,11 +22,11 @@ libgle3 tix python3-tk-dbg libboost-tools-dev libhdf5-dev python3-pkgconfig \
 python3-dev python3-dateutil python3-tz python3-six python3-pandas python3-watchdog ||
 	{ echo 'Dependency installation failed'; exit 1;}
 	
-#If your RPi has less than 4GB of RAM add and enable a 2GB Swapfile
-#sudo fallocate -l 2G /swapfile
-#sudo chmod 600 /swapfile
-#sudo mkswap /swapfile
-#sudo swapon /swapfile
+#If your RPi has less than 4GB of RAM add and enable a 3GB Swapfile
+sudo fallocate -l 3G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
 
 #Create a unique directory for the GNU Radio compile and make it the current directory
 mkdir -p ~/src/GNURadio && cd ~/src/GNURadio
