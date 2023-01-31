@@ -1,6 +1,6 @@
 #!/bin/sh
 #install GNU Radio(3.8.5.0) w/gr-net w/digital_rf w/h5py3.7.0
-#N4XWE 12-20-2022
+#N4XWE 1-30-2023
 #Built Specifically for the HamSci Grape/DRF Project
 #Test Compiled on Ubuntu 22.04LTS for the Raspberry Pi 64-bit
 
